@@ -1,0 +1,118 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YearWork"
+        xmlns:Converters="clr-namespace:YearWork.Converters" x:Class="YearWork.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="562.5" ResizeMode="NoResize" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Window.Resources>
+        <Converters:FromSelectedToVisibility x:Key="FromSelectedToVisibility"/>
+    </Window.Resources>
+    <Grid Background="#19933EC5">
+        <DockPanel Height="36" VerticalAlignment="Top" Background="#FF673AB7">
+            <DockPanel.Effect>
+                <DropShadowEffect BlurRadius="10" Opacity="0.4" Direction="270" ShadowDepth="2"/>
+            </DockPanel.Effect>
+            <Label x:Name="label" Content="Университет" VerticalContentAlignment="Center" FontSize="18" Foreground="White"/>
+            <Button x:Name="button" Content="" Width="36" Style="{DynamicResource FlatButtonStyle}" DockPanel.Dock="Right" BorderBrush="Transparent" Click="button_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/cross.png">
+                        <ImageBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.5" ScaleY="0.5"/>
+                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="button1" Content="" Width="36" Style="{DynamicResource FlatButtonStyle}" HorizontalAlignment="Right" BorderThickness="0" BorderBrush="Transparent">
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/multi-tab.png">
+                        <ImageBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.5" ScaleY="0.5"/>
+                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </Button.Background>
+            </Button>
+        </DockPanel>
+        <StackPanel HorizontalAlignment="Left" Height="314" Margin="0,36,0,0" VerticalAlignment="Top" Width="132" Background="#FFBBA5DE">
+            <StackPanel.Effect>
+                <DropShadowEffect BlurRadius="10" Opacity="0.4" Direction="0" ShadowDepth="2"/>
+            </StackPanel.Effect>
+            <Expander x:Name="expander" Header="Факультет #6" Margin="5,5,0,0" Collapsed="expander_Collapsed" Foreground="Black">
+                <Grid>
+                    <ListBox x:Name="listBox" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,0,0,0" Foreground="Black" SelectionChanged="listBox_SelectionChanged">
+                        <ListBoxItem Content="Кафедра 603" Style="{DynamicResource TabItemStyle}" Background="#FFBBA5DE" BorderBrush="#FF673AB7"/>
+                        <ListBoxItem Content="Кафедра 602" Style="{DynamicResource TabItemStyle}" Background="#FFBBA5DE" BorderBrush="#FF673AB7"/>
+                    </ListBox>
+                </Grid>
+            </Expander>
+        </StackPanel>
+        <Grid x:Name="MainPanel" HorizontalAlignment="Left" Height="314" Margin="132,36,0,0" VerticalAlignment="Top" Width="430" Background="#19673AB7">
+            <ListBox x:Name="listPersons" Opacity="0" Background="#FFE6DBF3">
+                <ListBoxItem Background="Transparent" Content="Преподаватель №1" FontWeight="Bold" FontSize="16" Padding="5,0,0,0"/>
+                <ListBoxItem Content="Преподаватель №1"/>
+            </ListBox>
+            <Label x:Name="lblIsFacultyChosen" Content="Выберите кафедру" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="#7FA2A2A2" RenderTransformOrigin="0.5,0.5" Margin="107,136"/>
+            <Label x:Name="lblChairName" Foreground="#FF673AB7"  FontWeight="Bold" FontSize="18"  Content="" Margin="0,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" Margin="0,98,0,88" Height="128">
+                <Button x:Name="btnHead" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Style="{DynamicResource ImageButtonStyle}" BorderBrush="{x:Null}" Margin="30,0,0,0" RenderTransformOrigin="0.5,0.5">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="234"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <StackPanel Height="128">
+                        <Image Source="Resources/teacher-teaching-with-a-stick.png" Width="96" Margin="5,5,5,0"/>
+                        <Label Content="Зав. кафедры" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF673AB7" FontWeight="Bold"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnTeachers" HorizontalAlignment="Left" VerticalAlignment="Center" Background="{x:Null}" Style="{DynamicResource ImageButtonStyle}" BorderBrush="{x:Null}" Margin="30,0,0,0" RenderTransformOrigin="0.5,0.5" Click="btnTeachers_Click">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="234"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <StackPanel Height="128" VerticalAlignment="Center">
+                        <Image Source="Resources/students-on-class.png" Width="96" Stretch="Fill" Margin="5,5,5,0"/>
+                        <Label Content="Преподаватели" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF673AB7" FontWeight="Bold"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnStudents" HorizontalAlignment="Left" VerticalAlignment="Center" Background="{x:Null}" Style="{DynamicResource ImageButtonStyle}" BorderBrush="{x:Null}" Margin="30,0,5,0" RenderTransformOrigin="0.5,0.5">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="234"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <StackPanel Height="128" RenderTransformOrigin="0.5,0.5">
+                        <Image Source="Resources/student.png" Width="96" OpacityMask="#FF673AB7" Margin="5,5,5,0"/>
+                        <Label Content="Студенты" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF673AB7" FontWeight="Bold" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="PersonInfoPage" Margin="132,36,0,0" Visibility="Hidden">
+            <Image Margin="0,10,10,0" Width="150" HorizontalAlignment="Right" Height="150" VerticalAlignment="Top" Source="pack://siteoforigin:,,,/Resources/Преподаватель-глазами-студента.-Часть-2.jpg" Stretch="UniformToFill"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,20,0,0" TextWrapping="Wrap" Text="Лучшева Оксана Вадимовна" VerticalAlignment="Top" FontSize="18" Width="245"/>
+        </Grid>
+    </Grid>
+</Window>
