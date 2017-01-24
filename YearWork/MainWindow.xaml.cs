@@ -15,9 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace YearWork {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+   //great changes from Dasha to Denis!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1yeah
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
